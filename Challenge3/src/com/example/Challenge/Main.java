@@ -1,16 +1,25 @@
 package com.example.Challenge;
 
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Eye leftEye = new Eye("Left Eye", "Short sighted", "Blue");
-        Eye rightEye = new Eye("Right Eye", "Normal", "Blue");
-        Heart heart = new Heart("Heart", "Normal", 65);
-        Stomach stomach = new Stomach("Stomach", "PUD", "Need to be fed");
-        Skin skin = new Skin("Skin", "Burned");
-        System.out.println("Name: Tom");
-        System.out.println("Age: 25");
+        Patient patient = new Patient("Tom", 25,
+                new Eye("Left Eye", "Short sighted", "Blue"),
+                new Eye("Right Eye", "Normal", "Blue"),
+                new Heart("Heart", "Normal", 65),
+                new Stomach("Stomach", "PUD", "Need to be fed"),
+                new Skin("Skin", "Burned"));
+//        Eye leftEye = new Eye("Left Eye", "Short sighted", "Blue");
+//        Eye rightEye = new Eye("Right Eye", "Normal", "Blue");
+//        Heart heart = new Heart("Heart", "Normal", 65);
+//        Stomach stomach = new Stomach("Stomach", "PUD", "Need to be fed");
+//        Skin skin = new Skin("Skin", "Burned");
+//        System.out.println("Name: Tom");
+//        System.out.println("Age: 25");
+        System.out.println("Name: " + patient.getName());
+        System.out.println("Age: " + patient.getAge());
         Scanner sc = new Scanner(System.in);
         int organChoice = 0;
         int choice = 0;
@@ -25,30 +34,30 @@ public class Main {
             organChoice = sc.nextInt();
             switch(organChoice){
                 case 1:
-                    leftEye.getDetails();
+                    patient.getLeftEye().getDetails();
                     System.out.println("\t1. Close the Eye");
                     choice = sc.nextInt();
                     if (choice == 1) System.out.println("Left Eye Closed");
                     break;
                 case 2:
-                    rightEye.getDetails();
+                    patient.getRightEye().getDetails();
                     System.out.println("\t1. Close the Eye");
                     choice = sc.nextInt();
                     if (choice == 1) System.out.println("Right Eye Closed");
                     break;
                 case 3:
-                    heart.getDetails();
+                    patient.getHeart().getDetails();
                     System.out.println("\t1. Change the heart rate");
                     choice = sc.nextInt();
                     if (choice == 1) {
                         System.out.println("Enter the new heart rate: ");
                         int newRate = sc.nextInt();
-                        heart.setHeartRate(newRate);
-                        System.out.println("Heart rate changed to: " + heart.getHeartRate());
+                        patient.getHeart().setHeartRate(newRate);
+                        System.out.println("Heart rate changed to: " + patient.getHeart().getHeartRate());
                     }
                     break;
                 case 4:
-                    stomach.getDetails();
+                    patient.getStomach().getDetails();
                     System.out.println("\t1. Digest");
                     choice = sc.nextInt();
                     if (choice == 1) {
@@ -56,7 +65,7 @@ public class Main {
                     }
                     break;
                 case 5:
-                    skin.getDetails();
+                    patient.getSkin().getDetails();
                     break;
             }
         }
