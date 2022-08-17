@@ -39,8 +39,8 @@ public class Challenge2 {
             guess = sc.nextInt();
         }
         System.out.println("Game over!");
-        System.out.print("Value should be ");
-        System.out.print(randint);
+        System.out.print("Value should be " + randint);
+        
         System.exit(0);
     }
 }
